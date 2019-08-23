@@ -1,0 +1,54 @@
+// Travel tab model
+class TravelTabModel {
+  String url;
+  Map params;
+  List<TravelTab> tabs;
+
+  TravelTabModel({this.url, this.params, this.tabs});
+
+  TravelTabModel.fromJson(Map<String, dynamic> json) {
+    url = json['url'];
+    params = json['params'];
+    if (json['tabs'] != null) {
+      tabs = new List<TravelTab>();
+      json['tabs'].forEach((v) {
+        tabs.add(new TravelTab.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['url'] = this.url;
+    if (this.tabs != null) {
+      data['tabs'] = this.tabs.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class TravelTab {
+  String labelName;
+  String groupChannelCode;
+  int type;
+
+  TravelTab({this.labelName, this.groupChannelCode, this.type});
+
+  TravelTab.fromJson(Map<String, dynamic> json) {
+    labelName = json['labelName'];
+    groupChannelCode = json['groupChannelCode'];
+    type = json['type'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['labelName'] = this.labelName;
+    data['groupChannelCode'] = this.groupChannelCode;
+    data['type'] = this.type;
+    return data;
+  }
+}
+
+
+
+
