@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:journey/model/common_model.dart';
 import 'package:journey/model/grid_nav_model.dart';
+import 'package:journey/util/navigator_util.dart';
 import 'package:journey/widget/webview.dart';
 
 // Grid card
@@ -127,15 +128,14 @@ class GridNav extends StatelessWidget {
   _wrapGesture(BuildContext context, Widget widget, CommonModel model) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
+        NavigatorUtil.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => WebView(
-                      url: model.url,
-                      statusBarColor: model.statusBarColor,
-                      title: model.title,
-                      hideAppBar: model.hideAppBar,
-                    )));
+            WebView(
+              url: model.url,
+              statusBarColor: model.statusBarColor,
+              title: model.title,
+              hideAppBar: model.hideAppBar,
+            ));
       },
       child: widget,
     );

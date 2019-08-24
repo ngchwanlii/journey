@@ -48,6 +48,12 @@ class _SearchBarState extends State<SearchBar> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return widget.searchBarType == SearchBarType.normal
         ? _genNormalSearch()
