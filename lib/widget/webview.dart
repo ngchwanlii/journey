@@ -13,11 +13,17 @@ class WebView extends StatefulWidget {
   final bool backForbid;
 
   WebView(
-      {this.url,
+      {Key key,
+      this.url,
       this.statusBarColor,
       this.title,
       this.hideAppBar,
-      this.backForbid = false});
+      this.backForbid})
+      : super(key: key) {
+    if (url != null && url.contains('ctrip.com')) {
+      url = url.replaceAll("http://", 'https://');
+    }
+  }
 
   @override
   _WebViewState createState() => _WebViewState();
