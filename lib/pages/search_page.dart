@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:journey/dao/search_dao.dart';
 import 'package:journey/model/search_model.dart';
 import 'package:journey/pages/speak_page.dart';
+import 'package:journey/util/navigator_util.dart';
 import 'package:journey/widget/search_bar.dart';
 import 'package:journey/widget/webview.dart';
 
@@ -50,10 +51,6 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   SearchModel searchModel;
   String keyword;
-
-  final PageController _controller = PageController(
-    initialPage: 0,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -110,11 +107,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   _jumpToSpeak() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SpeakPage(),
-        ));
+    NavigatorUtil.push(context, SpeakPage());
   }
 
   _onTextChange(String keyword) {
@@ -143,13 +136,12 @@ class _SearchPageState extends State<SearchPage> {
     SearchItem item = searchModel.data[position];
     return GestureDetector(
       onTap: () {
-        Navigator.push(
+        NavigatorUtil.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => WebView(
-                      url: item.url,
-                      title: '详情',
-                    )));
+            WebView(
+              url: item.url,
+              title: '详情',
+            ));
       },
       child: Container(
         padding: EdgeInsets.all(10),

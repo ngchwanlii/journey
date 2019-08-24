@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:journey/dao/travel_dao.dart';
 import 'package:journey/model/travel_model.dart';
+import 'package:journey/util/navigator_util.dart';
 import 'package:journey/widget/loading_container.dart';
 import 'package:journey/widget/webview.dart';
 
@@ -31,8 +32,9 @@ class _TravelTabPageState extends State<TravelTabPage>
   @override
   void initState() {
     _loadData();
-    _scrollController.addListener((){
-      if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
         _loadData(loadMore: true);
       }
     });
@@ -41,6 +43,7 @@ class _TravelTabPageState extends State<TravelTabPage>
 
   @override
   void dispose() {
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -68,7 +71,6 @@ class _TravelTabPageState extends State<TravelTabPage>
   }
 
   void _loadData({loadMore = false}) {
-
     if (loadMore) {
       pageIndex++;
     } else {
@@ -128,13 +130,12 @@ class _TravelItem extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           if (item.article.urls != null && item.article.urls.length > 0) {
-            Navigator.push(
+            NavigatorUtil.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => WebView(
-                          url: item.article.urls[0].h5Url,
-                          title: '详情',
-                        )));
+                WebView(
+                  url: item.article.urls[0].h5Url,
+                  title: '详情',
+                ));
           }
         },
         child: Card(

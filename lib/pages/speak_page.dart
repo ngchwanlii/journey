@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:journey/pages/search_page.dart';
 import 'package:journey/plugin/asr_manager.dart';
+import 'package:journey/util/navigator_util.dart';
 
 class SpeakPage extends StatefulWidget {
   @override
@@ -41,16 +42,12 @@ class _SpeakPageState extends State<SpeakPage>
       speakTips = '识别中...';
     });
     AsrManager.start().then((text) {
-      print("Check if we got a text here after speak: $text");
       if (text != null && text.length > 0) {
         setState(() {
           speakResult = text;
         });
         Navigator.pop(context);
-        Navigator.push(context, MaterialPageRoute(builder: (context) =>
-            SearchPage(keyword: speakResult)
-        ));
-        print("WHAT DID I SPEAK  -----------" + text);
+        NavigatorUtil.push(context, SearchPage(keyword: speakResult));
       }
     }).catchError((e) {
       print("ERROR DURING SPEAK -----------" + e.toString());

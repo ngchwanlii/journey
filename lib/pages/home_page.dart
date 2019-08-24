@@ -7,6 +7,7 @@ import 'package:journey/model/home_model.dart';
 import 'package:journey/model/sales_box_model.dart';
 import 'package:journey/pages/search_page.dart';
 import 'package:journey/pages/speak_page.dart';
+import 'package:journey/util/navigator_util.dart';
 import 'package:journey/widget/grid_nav.dart';
 import 'package:journey/widget/loading_container.dart';
 import 'package:journey/widget/local_nav.dart';
@@ -32,10 +33,6 @@ class _HomePageState extends State<HomePage> {
   GridNavModel gridNavModel;
   SalesBoxModel saleBoxModel;
   bool _loading = true;
-
-  final PageController _controller = PageController(
-    initialPage: 0,
-  );
 
   @override
   void initState() {
@@ -173,16 +170,13 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) {
-                  CommonModel model = bannerList[index];
-                  return WebView(
+              CommonModel model = bannerList[index];
+              NavigatorUtil.push(
+                  context,
+                  WebView(
                       url: model.url,
                       title: model.title,
-                      hideAppBar: model.hideAppBar);
-                }),
-              );
+                      hideAppBar: model.hideAppBar));
             },
             child: Image.network(
               bannerList[index].icon,
@@ -196,18 +190,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   _jumpToSearch() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SearchPage(hint: SEARCH_BAR_DEFAULT_TEXT)));
+    NavigatorUtil.push(context, SearchPage(hint: SEARCH_BAR_DEFAULT_TEXT));
   }
 
   _jumpToSpeak() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SpeakPage(),
-        )
-    );
+    NavigatorUtil.push(context, SpeakPage());
   }
 }
