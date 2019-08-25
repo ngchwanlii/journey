@@ -16,7 +16,7 @@ their mobile h5 UI to Flutter UI
 4. Check your available device emulators using ```flutter emulators```
 5. To run an emulator, run ```flutter emulators --launch <your_emulator_id>```
 6. Clone [journey](https://github.com/ngchwanlii/journey)
-7. **Follow the notes** on how to setup search function with voice recognition for specific platform at [here](##Note-on-implement-Search-function-with-Voic-Recognition)  
+7. **Follow the notes** on how to setup search function with voice recognition for specific platform at [here](#Note-on-implement-Search-function-with-Voice-Recognition)  
 Note for iOS, under ```journey/ios/plugin/ASRPlugin```, create ```BDSClientLib``` directory, 
 then put ```libBaiduSpeechSDK.a``` file you downloaded from Baidu iOS Native SDK's ```ios_sdk/BDSClientLib```,     
 8. After finish setup, ```cd``` to the ```journey``` project
@@ -42,7 +42,7 @@ then put ```libBaiduSpeechSDK.a``` file you downloaded from Baidu iOS Native SDK
 - [x] Implement Baidu's voice recognition for both iOS & Android by integrating native and flutter code using Message Channel
 - [x] User can manually search using keyword
             
-##  Note-on-implement-Search-function-with-Voic-Recognition 
+##  Note-on-implement-Search-function-with-Voice-Recognition 
 -   Setup Android Native SDK
     -   [Download Baidu's Android 离在线融合 SDK](https://ai.baidu.com/sdk#asr)
     -   Read [Baidu's Speech Recognition Documentation](http://ai.baidu.com/docs#/ASR-Android-SDK/top) for setup details   
