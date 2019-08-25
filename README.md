@@ -11,9 +11,11 @@ their mobile h5 UI to Flutter UI
 
 ## Run the App
 1. First, follow this [tutorial](https://flutter.dev/docs/get-started/install) to setup Flutter
-2. Clone [journey](https://github.com/ngchwanlii/journey), then ```cd``` to the project
-3. In Terminal, run ```flutter packages get```
-4. Start your app by running ```flutter run```
+2. [Setup your iOS emulator](https://flutter.dev/docs/get-started/install/macos#set-up-the-ios-simulator) and open it
+3. [Setup your Android emulator](https://flutter.dev/docs/get-started/install/macos#set-up-the-android-emulator) open it
+4. Clone [journey](https://github.com/ngchwanlii/journey), then ```cd``` to the project
+5. In Terminal, run ```flutter packages get```
+6. Start your app by running ```flutter run```
 
 
 ## Implemented UI
