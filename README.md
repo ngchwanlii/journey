@@ -42,7 +42,7 @@ then put ```libBaiduSpeechSDK.a``` file you downloaded from Baidu iOS Native SDK
 - [x] Implement Baidu's voice recognition for both iOS & Android by integrating native and flutter code using Message Channel
 - [x] User can manually search using keyword
             
-##  Note-on-implement-Search-function-with-Voice-Recognition 
+##  Note on implement Search function with Voice Recognition 
 -   Setup Android Native SDK
     -   [Download Baidu's Android 离在线融合 SDK](https://ai.baidu.com/sdk#asr)
     -   Read [Baidu's Speech Recognition Documentation](http://ai.baidu.com/docs#/ASR-Android-SDK/top) for setup details   
