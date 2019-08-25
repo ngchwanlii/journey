@@ -9,7 +9,7 @@ their mobile h5 UI to Flutter UI
 ## Demonstration
 <img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/home.jpg" width="200"/><img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/search_input.jpg" width="200"/><img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/search_speak.jpg" width="200"/><img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/search_web.jpg" width="200"/><img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/web1.jpg" width="200"/><img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/travel.jpg" width="200"/><img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/travel_detail.jpg" width="200"/><img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/my.jpg" width="200"/>
 
-## Run the apps
+## Run the App
 1. First, follow this [tutorial](https://flutter.dev/docs/get-started/install) to setup Flutter
 2. Clone [journey](https://github.com/ngchwanlii/journey), then ```cd``` to the project
 3. In Terminal, run ```flutter packages get```
