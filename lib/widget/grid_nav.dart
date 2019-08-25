@@ -130,7 +130,7 @@ class GridNav extends StatelessWidget {
       onTap: () {
         NavigatorUtil.push(
             context,
-            WebView(
+            WebViewWidget(
               url: model.url,
               statusBarColor: model.statusBarColor,
               title: model.title,

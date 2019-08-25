@@ -53,7 +53,7 @@ class SubNav extends StatelessWidget {
         onTap: () {
           NavigatorUtil.push(
               context,
-              WebView(
+              WebViewWidget(
                 url: model.url,
                 statusBarColor: model.statusBarColor,
                 hideAppBar: model.hideAppBar,
