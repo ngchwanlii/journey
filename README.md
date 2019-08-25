@@ -21,7 +21,7 @@ Note for iOS, under ```journey/ios/plugin/ASRPlugin```, create ```BDSClientLib``
 then put ```libBaiduSpeechSDK.a``` file you downloaded from Baidu iOS Native SDK's ```ios_sdk/BDSClientLib``` into it     
 8. After finish setup, ```cd``` to the ```journey``` project
 9. In Terminal, run ```flutter packages get```
-10. Start your app by running ```flutter run```
+10. Start your app by running ```flutter run -d <deviceId>``` or ```flutter run -d all``` to run with all devices you launched.
 
 
 ## Implemented UI
