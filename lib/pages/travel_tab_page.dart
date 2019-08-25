@@ -132,7 +132,7 @@ class _TravelItem extends StatelessWidget {
           if (item.article.urls != null && item.article.urls.length > 0) {
             NavigatorUtil.push(
                 context,
-                WebView(
+                WebViewWidget(
                   url: item.article.urls[0].h5Url,
                   title: '详情',
                 ));

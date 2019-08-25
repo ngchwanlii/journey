@@ -1,24 +1,25 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 const CATCH_URLS = ['m.ctrip.com/', 'm.ctrip.com/html5/', 'm.ctrup.com/html5'];
 
-class WebView extends StatefulWidget {
+class WebViewWidget extends StatefulWidget {
   String url;
   final String statusBarColor;
   final String title;
   final bool hideAppBar;
   final bool backForbid;
 
-  WebView(
+  final bool isMyPage;
+
+  WebViewWidget(
       {Key key,
       this.url,
       this.statusBarColor,
       this.title,
       this.hideAppBar,
-      this.backForbid})
+      this.backForbid = false,
+      this.isMyPage = false})
       : super(key: key) {
     if (url != null && url.contains('ctrip.com')) {
       url = url.replaceAll("http://", 'https://');
@@ -26,47 +27,18 @@ class WebView extends StatefulWidget {
   }
 
   @override
-  _WebViewState createState() => _WebViewState();
+  _WebViewWidgetState createState() => _WebViewWidgetState();
 }
 
-class _WebViewState extends State<WebView> {
-  final webviewReference = new FlutterWebviewPlugin();
-  StreamSubscription<String> _onUrlChanged;
-  StreamSubscription<WebViewStateChanged> _onStateChanged;
-  StreamSubscription<WebViewHttpError> _onHttpError;
-  bool exiting = false;
-
+class _WebViewWidgetState extends State<WebViewWidget> {
   @override
   void initState() {
     super.initState();
-    webviewReference.close();
-    _onUrlChanged = webviewReference.onUrlChanged.listen((String url) {});
-    _onStateChanged =
-        webviewReference.onStateChanged.listen((WebViewStateChanged state) {
-      switch (state.type) {
-        case WebViewState.startLoad:
-          if (_isToMain(state.url) && !exiting) {
-            if (widget.backForbid) {
-              webviewReference.launch(widget.url);
-            } else {
-              Navigator.pop(context);
-              exiting = true;
-            }
-          }
-          break;
-        default:
-          break;
-      }
-    });
-
-    _onHttpError =
-        webviewReference.onHttpError.listen((WebViewHttpError error) {
-      print("error: $error");
-    });
   }
 
   _isToMain(String url) {
     bool contain = false;
+    if (widget.isMyPage) return contain;
     for (final value in CATCH_URLS) {
       if (url?.endsWith(value) ?? false) {
         contain = true;
@@ -78,10 +50,6 @@ class _WebViewState extends State<WebView> {
 
   @override
   void dispose() {
-    _onUrlChanged.cancel();
-    _onStateChanged.cancel();
-    _onHttpError.cancel();
-    webviewReference.dispose();
     super.dispose();
   }
 
@@ -102,17 +70,17 @@ class _WebViewState extends State<WebView> {
           _appBar(
               Color(int.parse('0xff' + statusBarColorStr)), backButtonColor),
           Expanded(
-              child: WebviewScaffold(
-            url: widget.url,
-            withZoom: true,
-            withLocalStorage: true,
-            hidden: true,
-            initialChild: Container(
-              color: Colors.white,
-              child: Center(
-                child: Text('Waiting...'),
-              ),
-            ),
+              child: WebView(
+            initialUrl: widget.url,
+            javascriptMode: JavascriptMode.unrestricted,
+            navigationDelegate: (NavigationRequest request) {
+              if (_isToMain(request.url)) {
+                // only my_page can return back to ctrip h5 page
+                Navigator.pop(context);
+                return NavigationDecision.prevent;
+              }
+              return NavigationDecision.navigate;
+            },
           )),
         ],
       ),

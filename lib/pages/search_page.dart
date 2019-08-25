@@ -138,7 +138,7 @@ class _SearchPageState extends State<SearchPage> {
       onTap: () {
         NavigatorUtil.push(
             context,
-            WebView(
+            WebViewWidget(
               url: item.url,
               title: '详情',
             ));

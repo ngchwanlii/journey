@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
               CommonModel model = bannerList[index];
               NavigatorUtil.push(
                   context,
-                  WebView(
+                  WebViewWidget(
                       url: model.url,
                       title: model.title,
                       hideAppBar: model.hideAppBar));

@@ -19,11 +19,12 @@ class _MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-          child: WebView(
+          child: WebViewWidget(
             url: MY_URL,
             hideAppBar: true,
             backForbid: true,
             statusBarColor: '4c5bca',
+            isMyPage: true,
           ),
         )
     );
