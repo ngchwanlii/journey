@@ -16,7 +16,7 @@ their mobile h5 UI to Flutter UI
 4. Check your available device emulators using ```flutter emulators```
 5. To run an emulator, run ```flutter emulators --launch <your_emulator_id>```
 6. Clone [journey](https://github.com/ngchwanlii/journey)
-7. **Follow the notes** on how to setup search function with voice recognition for specific platform at [here](#Note on implement Search function with Voice Recognition)  
+7. **Follow the notes** on how to setup search function with voice recognition for specific platform at [here](##Note on implement Search function with Voice Recognition)  
 Note for iOS, under ```journey/ios/plugin/ASRPlugin```, create ```BDSClientLib``` directory, 
 then put ```libBaiduSpeechSDK.a``` file you downloaded from Baidu iOS Native SDK's ```ios_sdk/BDSClientLib```,     
 8. After finish setup, ```cd``` to the ```journey``` project
