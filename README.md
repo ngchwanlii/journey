@@ -1,15 +1,47 @@
 # Journey
 
 ## Introduction
-- Journey is an travel application made in Flutter
+- Journey is an online travel application
+- The purpose of building this application is to learn how to use Flutter framework.
+For simplicity, I have choose to clone one of the famous OTA in China - ctrip.com. Converting 
+their mobile h5 UI to Flutter UI
 
-## Mocking data / assets
--   Majority of the assets such as icon, image, url link is obtained from ```m.ctrip.com``` mobile version.
-    The reason behind this is because by getting mock data / assets from ctrip server, we can greatly simplify the process to setup a real backend server / api gateway
-    to serve these assets, hence, I can focus more on learning how to build app with Flutter framework.
+## Demonstration
+<img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/home.jpg" width="200"/>
+<img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/search_input.jpg" width="200"/>
+<img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/search_speak.jpg" width="200"/>
+<img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/search_web.jpg" width="200"/>
+<img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/web1.jpg" width="200"/>
+<img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/travel.jpg" width="200"/>
+<img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/travel_detail.jpg" width="200"/>
+<img src="https://github.com/ngchwanlii/journey/blob/master/demo_images/my.jpg" width="200"/>
+
+## Run the apps
+1. First, follow this [tutorial](https://flutter.dev/docs/get-started/install) to setup Flutter
+2. Clone [journey](https://github.com/ngchwanlii/journey), then ```cd``` to the project
+3. In Terminal, run ```flutter packages get```
+4. Start your app by running ```flutter run```
 
 
-##  Search function with Voice Recognition 
+## Implemented UI
+- [x] Designed for iOS & Android UI
+    - [x] Home Page (首页)    
+    - [x] Search Page (搜索)
+    - [x] Travel Page (旅拍)
+    - [x] My Page (我的)
+
+## Implemented functionalities & pattern
+- [x] Caching images locally
+- [x] Used staggered grid layout for travel page
+- [x] Getting data/assets from GET / POST request from ctrip h5 mobile server
+- [x] Lazy loading for more travel pages when user slide up
+- [x] Handle refresh when user slide down
+- [x] Clicking on specific icon/image/post can link back to h5 mobile side and displayed as in Flutter UI using WebView
+- [x] Implemented Baidu's voice recognition for search
+- [x] Implement Baidu's voice recognition for both iOS & Android by integrating native and flutter code using Message Channel
+- [x] User can manually search using keyword
+            
+##  Note on implement Search function with Voice Recognition 
 -   Setup Android Native SDK
     -   [Download Baidu's Android 离在线融合 SDK](https://ai.baidu.com/sdk#asr)
     -   Read [Baidu's Speech Recognition Documentation](http://ai.baidu.com/docs#/ASR-Android-SDK/top) for setup details   
@@ -71,8 +103,13 @@
     -   Implement ```asr_manager.dart``` to invoke ```MethodChannel``` and functions so that we can communicate with native Android & iOS
 
                     
-      
-    
+# App Deployment
+- Android
+    - [Preparing an Android app for release](https://flutter.dev/docs/deployment/android)
+    - If there is a ```Gradle task assembleRelease failed with exit code 1``` issues, 
+        in terminal type ```flutter clean``` and rebuild your apk ```flutter build apk```.      
+- iOS
+    - [Preparing an iOS app for release](https://flutter.dev/docs/deployment/ios)    
         
      
         
