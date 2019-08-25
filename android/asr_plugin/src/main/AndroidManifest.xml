@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.onehub.flutter.plugin.asr">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application>
+        <meta-data
+            android:name="com.baidu.speech.APP_ID"
+            android:value="17060954" />
+
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="FyroZOA379bcXi2yyX6ea5om" />
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="PWY6X3B5bQs0fjISmmn3w2K2pHoIijfV" />
+        <service
+            android:name="com.baidu.speech.VoiceRecognitionService"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
+
+
